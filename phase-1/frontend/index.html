@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Generator - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <h1>🔍 SQL Query Generator</h1>
+                <p>Natural Language to SQL Converter</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Enter your username"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            
+            <div class="info-box">
+                <h3>Demo Credentials</h3>
+                <div class="credentials">
+                    <div class="cred-item">
+                        <strong>Sales Team:</strong><br>
+                        Username: <code>sales_user</code><br>
+                        Password: <code>sales_secure_pass_123</code>
+                    </div>
+                    <div class="cred-item">
+                        <strong>Marketing Team:</strong><br>
+                        Username: <code>marketing_user</code><br>
+                        Password: <code>marketing_secure_pass_123</code>
+                    </div>
+                    <div class="cred-item">
+                        <strong>Operations Team:</strong><br>
+                        Username: <code>operations_user</code><br>
+                        Password: <code>operations_secure_pass_123</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
