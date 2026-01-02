@@ -39,7 +39,7 @@ source venv/bin/activate
 python main.py
 ```
 
-The server will start on `http://localhost:8000`
+The server will start on `http://localhost:8080`
 
 ## API Endpoints
 
@@ -91,8 +91,8 @@ The server will start on `http://localhost:8000`
 ## Interactive API Documentation
 
 Once the server is running, visit:
-- **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
+- **Swagger UI**: `http://localhost:8080/docs`
+- **ReDoc**: `http://localhost:8080/redoc`
 
 ## Testing the API
 
@@ -100,23 +100,23 @@ Once the server is running, visit:
 
 ```bash
 # Login
-curl -X POST http://localhost:8000/api/login \
+curl -X POST http://localhost:8080/api/login \
   -H "Content-Type: application/json" \
   -d '{"username": "sales_user", "password": "sales_secure_pass_123"}' \
   -c cookies.txt
 
 # Get schema
-curl -X GET http://localhost:8000/api/schema \
+curl -X GET http://localhost:8080/api/schema \
   -b cookies.txt
 
 # Generate SQL
-curl -X POST http://localhost:8000/api/generate-sql \
+curl -X POST http://localhost:8080/api/generate-sql \
   -H "Content-Type: application/json" \
   -d '{"natural_query": "Show me all customers"}' \
   -b cookies.txt
 
 # Execute query
-curl -X POST http://localhost:8000/api/query \
+curl -X POST http://localhost:8080/api/query \
   -H "Content-Type: application/json" \
   -d '{"natural_query": "How many orders were placed in December 2024?"}' \
   -b cookies.txt
@@ -130,7 +130,7 @@ import requests
 # Login
 session = requests.Session()
 response = session.post(
-    "http://localhost:8000/api/login",
+    "http://localhost:8080/api/login",
     json={
         "username": "sales_user",
         "password": "sales_secure_pass_123"
@@ -139,12 +139,12 @@ response = session.post(
 print(response.json())
 
 # Get tables
-response = session.get("http://localhost:8000/api/tables")
+response = session.get("http://localhost:8080/api/tables")
 print(response.json())
 
 # Generate and execute query
 response = session.post(
-    "http://localhost:8000/api/query",
+    "http://localhost:8080/api/query",
     json={
         "natural_query": "Show me the top 5 customers by total order amount"
     }

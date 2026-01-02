@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Generator - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🔍 SQL Query Generator</h1>
+                <div class="user-info">
+                    <span id="teamName" class="team-badge"></span>
+                    <span id="username"></span>
+                    <button id="logoutBtn" class="btn-secondary">Logout</button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar - Schema Browser -->
+            <aside class="sidebar">
+                <h2>Database Schema</h2>
+                <div class="schema-info">
+                    <p class="loading" id="schemaLoading">Loading schema...</p>
+                    <div id="schemaContent" class="schema-content" style="display: none;">
+                        <div id="tablesList" class="tables-list"></div>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Main Panel - Query Interface -->
+            <main class="main-panel">
+                <div class="query-section">
+                    <h2>Natural Language Query</h2>
+                    <p class="section-description">
+                        Ask questions in plain English, and we'll convert them to SQL
+                    </p>
+                    
+                    <div class="query-input-container">
+                        <textarea 
+                            id="naturalQuery" 
+                            placeholder="E.g., Show me all customers who placed orders in December 2024"
+                            rows="4"
+                        ></textarea>
+                        
+                        <div class="button-group">
+                            <button id="generateBtn" class="btn-primary">
+                                Generate SQL
+                            </button>
+                            <button id="executeBtn" class="btn-success" disabled>
+                                Generate & Execute
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Generated SQL Section -->
+                <div class="sql-section" id="sqlSection" style="display: none;">
+                    <h2>Generated SQL Query</h2>
+                    <div class="sql-display">
+                        <pre id="generatedSQL"></pre>
+                        <button id="copySQLBtn" class="btn-icon" title="Copy SQL">📋</button>
+                    </div>
+                    <div class="button-group">
+                        <button id="runSQLBtn" class="btn-success">Run Query</button>
+                        <button id="editSQLBtn" class="btn-secondary">Edit SQL</button>
+                    </div>
+                </div>
+                
+                <!-- Edit SQL Section (hidden by default) -->
+                <div class="sql-edit-section" id="sqlEditSection" style="display: none;">
+                    <h2>Edit SQL Query</h2>
+                    <textarea id="editableSQL" rows="6"></textarea>
+                    <div class="button-group">
+                        <button id="runEditedSQLBtn" class="btn-success">Run Edited Query</button>
+                        <button id="cancelEditBtn" class="btn-secondary">Cancel</button>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection" style="display: none;">
+                    <div class="results-header">
+                        <h2>Query Results</h2>
+                        <span id="rowCount" class="row-count"></span>
+                    </div>
+                    <div class="results-container">
+                        <div id="resultsTable"></div>
+                    </div>
+                </div>
+                
+                <!-- Error Section -->
+                <div class="error-section" id="errorSection" style="display: none;">
+                    <h2>Error</h2>
+                    <div class="error-content" id="errorContent"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="js/config.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
