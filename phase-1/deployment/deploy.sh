@@ -7,7 +7,7 @@ set -e
 
 # Configuration
 EC2_USER="ubuntu"
-EC2_HOST=""  # Set your EC2 public IP or hostname
+EC2_HOST="15.206.94.222"  # Set your EC2 public IP or hostname
 APP_DIR="/var/www/sql-query-generator"
 LOCAL_DIR="$(dirname "$(dirname "$(readlink -f "$0")")")"
 
